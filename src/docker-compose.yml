@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  mongo:
+    container_name: nosqldata
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: printwayy
+
+  cinemanager.web:
+    image: ${DOCKER_REGISTRY-}cinemanagerweb
+    build:
+      context: .
+      dockerfile: CineManager.Web/Dockerfile
+    depends_on:
+      - mongo

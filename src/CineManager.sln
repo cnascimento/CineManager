@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CineManager.Web", "CineManager.Web\CineManager.Web.csproj", "{78C69355-487D-410A-B473-A3185472CD94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CineManager.Web", "CineManager.Web\CineManager.Web.csproj", "{78C69355-487D-410A-B473-A3185472CD94}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{8BE0BC82-8515-474F-81FD-3271ABF56D6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CineManager.Domain", "..\CineManager.Domain\CineManager.Domain.csproj", "{E5E7E9FD-53D1-4C25-888F-7AD38F67444E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CineManager.Infrastructure", "..\CineManager.Infrastructure\CineManager.Infrastructure.csproj", "{86B26CCC-4C0A-462A-972C-2035ED3A3D82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{78C69355-487D-410A-B473-A3185472CD94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78C69355-487D-410A-B473-A3185472CD94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78C69355-487D-410A-B473-A3185472CD94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BE0BC82-8515-474F-81FD-3271ABF56D6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BE0BC82-8515-474F-81FD-3271ABF56D6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BE0BC82-8515-474F-81FD-3271ABF56D6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BE0BC82-8515-474F-81FD-3271ABF56D6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5E7E9FD-53D1-4C25-888F-7AD38F67444E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5E7E9FD-53D1-4C25-888F-7AD38F67444E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5E7E9FD-53D1-4C25-888F-7AD38F67444E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5E7E9FD-53D1-4C25-888F-7AD38F67444E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86B26CCC-4C0A-462A-972C-2035ED3A3D82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86B26CCC-4C0A-462A-972C-2035ED3A3D82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86B26CCC-4C0A-462A-972C-2035ED3A3D82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86B26CCC-4C0A-462A-972C-2035ED3A3D82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
