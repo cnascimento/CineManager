@@ -1,3 +1,4 @@
+using CineManager.Infrastructure;
 using CineManager.Infrastructure.Repositories;
 using CineManager.Infrastructure.Services;
 using Microsoft.AspNetCore.Builder;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +27,8 @@ namespace CineManager.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<CineManagerSettings>(Configuration);
+
             services.AddTransient<IMovieService, MovieService>();
             services.AddTransient<IMovieRepository, MovieRepository>();
 
@@ -57,6 +61,10 @@ namespace CineManager.Web
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            var config = app.ApplicationServices.GetRequiredService<IOptions<CineManagerSettings>>();
+
+            CineManagerContextSeed.SeedAsync(config).Wait();
         }
     }
 }

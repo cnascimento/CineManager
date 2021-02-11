@@ -1,4 +1,5 @@
 ﻿using CineManager.Domain;
+using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -12,19 +13,26 @@ namespace CineManager.Infrastructure
     {
         private readonly IMongoDatabase _database = null;
 
-        public CineManagerContext()
+        public CineManagerContext(IOptions<CineManagerSettings> settings)
         {
-            var client = new MongoClient("mongodb://root:printwayy@mongo");
+            var client = new MongoClient(settings.Value.ConnectionString);
             if (client != null)
-                _database = client.GetDatabase("cinemanager_db");
+                _database = client.GetDatabase(settings.Value.DatabaseName);
         }
 
         public IMongoCollection<Movie> Movies
         {
-            get
-            {
-                return _database.GetCollection<Movie>("Movie");
-            }
+            get { return _database.GetCollection<Movie>("movies"); }
+        }
+
+        public IMongoCollection<Room> Rooms
+        {
+            get { return _database.GetCollection<Room>("rooms"); }
+        }
+
+        public IMongoCollection<User> Users
+        {
+            get { return _database.GetCollection<User>("users"); }
         }
     }
 }

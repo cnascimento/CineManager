@@ -1,4 +1,5 @@
 ﻿using CineManager.Domain;
+using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -12,9 +13,9 @@ namespace CineManager.Infrastructure.Repositories
     {
         private readonly CineManagerContext _context;
 
-        public MovieRepository()
+        public MovieRepository(IOptions<CineManagerSettings> settings)
         {
-            _context = new CineManagerContext();
+            _context = new CineManagerContext(settings);
         }
 
         public async Task<Movie> GetAsync(int MovieId)
